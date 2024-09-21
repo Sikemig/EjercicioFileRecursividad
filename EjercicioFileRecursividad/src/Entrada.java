@@ -20,13 +20,25 @@ public class Entrada {
         }
 
         //Ejercicio 3 - Listar el nombre de todos los ficheros y directorios de una ruta concreta, como por ejemplo C:/Users
-        File ficherosDeDirectorio3 = new File("C:\\Users");
+        //Forma 1
+        /*File ficherosDeDirectorio3 = new File("C:\\Users");
         File[] listado3 = ficherosDeDirectorio3.listFiles();
 
 
         for(File list:listado3){
             System.out.println("Este es el listado de ficheros y directorios de Users (ejercicio 3): " + list.getName());
-        }
+                if(list.isDirectory()){     //Habria que hacer esto por cada nivel, lo suyo es crear un método que se repita
+                    File ficherosSubdirectorio = new File("C:\\Users\\"+list.getName());
+                    File [] ficherosub = ficherosSubdirectorio.listFiles();
+                    for(File list2 : ficherosub){
+                        System.out.println("\t Este es el listado de ficheros y directorios de Users (ejercicio 3): " + list2.getName());
+                    }
+                }
+        }*/
 
+        //Forma 2 --> creamos otra clase para los métodos
+
+        ParaMetodoRecursivo recursividad = new ParaMetodoRecursivo();
+        recursividad.lecturaRecursiva("C:\\Users");
     }
 }
